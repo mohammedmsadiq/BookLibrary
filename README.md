@@ -1,5 +1,5 @@
 # Introduction 
-Book Liabrary will run on android and ios 
+Book Liabrary will run on android and ios simulator
 
 # Functionality 
     # HomePage
