@@ -14,4 +14,6 @@ Book Liabrary will run on android and ios simulator
         - Allows the user to input details such as Title, Author, Genre, Publication Year, and a brief Description, all of which are validated for correctness.
 
     #other
-        -The application includes a database feature that ensures data persistence. Thi
+        -The application includes a database feature that ensures data persistence.
+
+        Author - https://github.com/mohammedmsadiq/BookLibrary
