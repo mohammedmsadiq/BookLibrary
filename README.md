@@ -1,5 +1,5 @@
 # Introduction 
-TODO: book liabrary will run on android and ios 
+Book Liabrary will run on android and ios 
 
 # Functionality 
     # HomePage
