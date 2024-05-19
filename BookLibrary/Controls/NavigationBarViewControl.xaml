@@ -1,0 +1,48 @@
+<?xml
+    version="1.0"
+    encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fontFigure="clr-namespace:BookLibrary.Resources.Constants"
+             x:Name="NavigationBar"
+             x:Class="BookLibrary.Controls.NavigationBarViewControl">
+    <Grid
+        x:Name="NavigationBarWithBackButtonGrid"
+        Margin="0"
+        ColumnDefinitions="60,*,60"
+        ColumnSpacing="0">
+        <ImageButton
+            Grid.Column="0"
+            x:Name="NavigationBackButton"
+            Margin="0,20"
+            Aspect="AspectFit"
+            Command="{Binding Source={x:Reference NavigationBar}, Path=BackCommand}"
+            HorizontalOptions="Start"
+            VerticalOptions="Center">
+            <ImageButton.Source>
+                <FontImageSource
+                    FontFamily="FontAwesomeSharpThin100"
+                    Size="14"
+                    Glyph="{x:Static fontFigure:FontAwsomeIconFont.ChevronLeft}"
+                    Color="{StaticResource Gray950}" />
+            </ImageButton.Source>
+        </ImageButton>
+        <Label
+            Grid.Column="1"
+            x:Name="NavigationBarTitle"
+            Text="{Binding Source={x:Reference NavigationBar}, Path=Title}"
+            FontFamily="LatoLight"
+            FontSize="14"
+            HorizontalOptions="Center"
+            TextColor="{StaticResource Gray950}"
+            VerticalOptions="Center" />
+        <BoxView 
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HeightRequest="1" 
+            VerticalOptions="End" 
+            HorizontalOptions="Fill" 
+            BackgroundColor="{StaticResource Gray200}"/>
+    </Grid>
+</ContentView>

@@ -1,0 +1,99 @@
+<?xml
+    version="1.0"
+    encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:BookLibrary.Controls"
+             xmlns:settings="clr-namespace:AiForms.Settings;assembly=SettingsView"
+             x:Class="BookLibrary.Views.AddBookPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid
+                RowDefinitions="60,*">
+                <controls:NavigationBarViewControl
+                    Grid.Row="0"
+                    Title="{Binding Title}"
+                    BackCommand="{Binding GoBackCommand}" />
+                <settings:SettingsView
+                    Grid.Row="1"
+                    HasUnevenRows="true"
+                    FooterFontFamily="LatoLight"
+                    FooterFontSize="12"
+                    HeaderFontFamily="LatoLight"
+                    HeaderFontSize="14"
+                    HeaderBackgroundColor="Transparent"
+                    CellDescriptionFontFamily="LatoLight"
+                    CellDescriptionFontSize="8"
+                    CellHintFontFamily="LatoLight"
+                    CellHintFontSize="8"
+                    CellTitleFontFamily="LatoLight"
+                    CellTitleFontSize="12"
+                    CellValueTextFontFamily="LatoLight"
+                    CellTitleColor="{StaticResource Gray950}"
+                    CellDescriptionColor="{StaticResource Gray950}"
+                    CellValueTextColor="{StaticResource Gray950}"
+                    CellValueTextFontSize="12">
+                    <settings:Section>
+                        <settings:EntryCell
+                            Title="Title"
+                            ValueText="{Binding BookItem.Title}"
+                            Placeholder="Enter Title"
+                            TextAlignment="End" />
+                        <settings:EntryCell
+                            Title="Author"
+                            ValueText="{Binding BookItem.Author}"
+                            Placeholder="Enter Author"
+                            TextAlignment="End" />
+                        <settings:EntryCell
+                            Title="Genre"
+                            ValueText="{Binding BookItem.Genre}"
+                            Placeholder="Enter Genre"
+                            TextAlignment="End" />
+                        <settings:EntryCell
+                            Title="Publisher"
+                            ValueText="{Binding BookItem.Publisher}"
+                            Placeholder="Enter Publisher"
+                            TextAlignment="End" />
+                        <settings:EntryCell
+                            Title="PublicationYear"
+                            Placeholder="Enter Publication Year"
+                            Keyboard="Numeric"
+                            ValueText="{Binding BookItem.PublicationYear}"
+                            TextAlignment="End" />
+                        <settings:CustomCell>
+                            <VerticalStackLayout Spacing="10">
+                                <Label
+                                    Text="Description"
+                                    FontFamily="LatoLight"
+                                    FontSize="12" />
+                                <Editor
+                                    FontFamily="LatoLight"
+                                    FontSize="12"
+                                    HeightRequest="200"
+                                    Text="{Binding BookItem.Description}"
+                                    Placeholder="Enter Description" />
+                            </VerticalStackLayout>
+                        </settings:CustomCell>
+                        <settings:ButtonCell
+                            Height="60"
+                            BackgroundColor="{StaticResource PrimaryActionBackgroundColour}"
+                            Title="{Binding SaveButtonText}"
+                            Command="{Binding SaveButtonCommand}"
+                            TitleColor="{StaticResource Gray950}"
+                            TitleFontFamily="LatoLight"
+                            TitleFontSize="12" />
+                        <settings:ButtonCell
+                            Height="60"
+                            BackgroundColor="{StaticResource PrimaryActionBackgroundColour}"
+                            Title="Delete"
+                            Command="{Binding DeleteButtonCommand}"
+                            TitleColor="{StaticResource Gray950}"
+                            TitleFontFamily="LatoLight"
+                            TitleFontSize="12" />
+                    </settings:Section>
+                </settings:SettingsView>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

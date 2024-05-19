@@ -1,0 +1,194 @@
+<?xml
+    version="1.0"
+    encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:BookLibrary.Controls"
+             xmlns:fontFigure="clr-namespace:BookLibrary.Resources.Constants"
+             x:Class="BookLibrary.Views.HomePage">
+    <ContentPage.Content>
+        <Grid
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill">
+            <CollectionView
+                Scrolled="ItemsView_OnScrolled"
+                ItemsSource="{Binding BookItemSource}"
+                SelectionMode="Single"
+                SelectedItem="{Binding SelectedBookItem}"
+                VerticalOptions="Fill"
+                HorizontalOptions="Fill">
+                <CollectionView.EmptyView>
+                    <controls:EmptyViewControl />
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            BackgroundColor="{StaticResource CoreBackgroundMediumGray}"
+                            Padding="10,10,10,0"
+                            VerticalOptions="Fill"
+                            HorizontalOptions="Fill"
+                            ColumnDefinitions="*,*"
+                            RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+                            <Label 
+                                Margin="0,0,0,10"
+                                Grid.Column="0" 
+                                Grid.Row="0">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span
+                                            FontFamily="LatoSemibold"
+                                            FontSize="12"
+                                            TextColor="{StaticResource Gray950}"
+                                            Text="Title:" />
+                                        <Span Text="  "></Span>
+                                        <Span
+                                            FontFamily="LatoLight"
+                                            FontSize="12"
+                                            TextColor="{StaticResource Gray950}"
+                                            Text="{Binding Title}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label 
+                                Margin="0,0,0,10"
+                                Grid.Column="1" 
+                                Grid.Row="0">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span
+                                            FontFamily="LatoSemibold"
+                                            FontSize="12"
+                                            TextColor="{StaticResource Gray950}"
+                                            Text="Author:" />
+                                        <Span Text="  "></Span>
+                                        <Span
+                                            FontFamily="LatoLight"
+                                            FontSize="12"
+                                            TextColor="{StaticResource Gray950}"
+                                            Text="{Binding Author}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label 
+                                Margin="0,0,0,10"
+                                Grid.Column="0" 
+                                Grid.Row="1">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span
+                                            FontFamily="LatoSemibold"
+                                            FontSize="12"
+                                            TextColor="{StaticResource Gray950}"
+                                            Text="Genre:" />
+                                        <Span Text="  "></Span>
+                                        <Span
+                                            FontFamily="LatoLight"
+                                            FontSize="12"
+                                            TextColor="{StaticResource Gray950}"
+                                            Text="{Binding Genre}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label 
+                                Margin="0,0,0,10"
+                                Grid.Column="1" 
+                                Grid.Row="1">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span
+                                            FontFamily="LatoSemibold"
+                                            FontSize="12"
+                                            TextColor="{StaticResource Gray950}"
+                                            Text="Publisher:" />
+                                        <Span Text="  "></Span>
+                                        <Span
+                                            FontFamily="LatoLight"
+                                            FontSize="12"
+                                            TextColor="{StaticResource Gray950}"
+                                            Text="{Binding Publisher}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label 
+                                Margin="0,0,0,10"
+                                Grid.Column="0" 
+                                Grid.Row="2">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span
+                                            FontFamily="LatoSemibold"
+                                            FontSize="12"
+                                            TextColor="{StaticResource Gray950}"
+                                            Text="Publication Year:" />
+                                        <Span Text="  "></Span>
+                                        <Span
+                                            FontFamily="LatoLight"
+                                            FontSize="12"
+                                            TextColor="{StaticResource Gray950}"
+                                            Text="{Binding PublicationYear}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <VerticalStackLayout
+                                Margin="0,0,0,10"
+                                Spacing="5"
+                                Grid.Column="0"
+                                Grid.Row="3"
+                                Grid.ColumnSpan="2">
+                                <Label
+                                    FontFamily="LatoSemibold"
+                                    FontSize="12"
+                                    TextColor="{StaticResource Gray950}"
+                                    Text="Description:" />
+                                <Label
+                                    FontFamily="LatoLight"
+                                    FontSize="12"
+                                    TextColor="{StaticResource Gray950}"
+                                    Text="{Binding Description}" />
+                            </VerticalStackLayout>
+                            <BoxView
+                                Margin="-10,0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Grid.Row="4"
+                                VerticalOptions="Fill"
+                                HorizontalOptions="Fill"
+                                HeightRequest="8"
+                                BackgroundColor="White" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Frame
+                x:Name="AddButton"
+                BackgroundColor="{StaticResource PrimaryActionBackgroundColour}"
+                Padding="20,10"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                Margin="20">
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                FontSize="14"
+                                FontFamily="FontAwesomeSharpLight300"
+                                TextColor="{StaticResource Gray950}"
+                                Text="{x:Static fontFigure:FontAwsomeIconFont.Plus}" />
+                            <Span Text="  "></Span>
+                            <Span
+                                FontFamily="LatoLight"
+                                FontSize="12"
+                                TextColor="{StaticResource Gray950}"
+                                Text="Add a book" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame.GestureRecognizers>
+                    <PanGestureRecognizer PanUpdated="PanGestureRecognizer_OnPanUpdated" />
+                    <TapGestureRecognizer Command="{Binding AddBookCommand}" />
+                </Frame.GestureRecognizers>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
